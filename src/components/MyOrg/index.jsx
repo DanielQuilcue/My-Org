@@ -1,9 +1,9 @@
 
 import './style.css'
-const MyOrg = () => {
+const MyOrg = (props) => {
   return <section className="orgSection">
     <h3 className='title'>Mi organización</h3>
-    <img src="/img/add.png" alt="add"/>
+    <img src="/img/add.png" alt="add" onClick={props.mostrarEstado} />
   </section>
 }
 export default MyOrg;

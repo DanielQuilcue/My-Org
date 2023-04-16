@@ -1,7 +1,12 @@
+// import { useState, useEffect } from 'react'
 import './OptionList.css'
 
-const OptionList = () => {
-
+const OptionList = (props) => {
+  const manejarSelector = (e) => {
+    console.log(e.target.value);
+    props.setEquipo(e.target.value)
+  }
+  
   const team = [
     "Programación",
     "Front End",
@@ -13,10 +18,11 @@ const OptionList = () => {
   ]
   return <div className="optionList">
     <label>Equipos</label>
-    <select>
+    <select value={props.valor} onChange={manejarSelector}>
+    <option value="" disabled defaultValue="" hidden>Seleccionar equipo</option>
       {
         team.map((team, index) =>
-          <option key={index}>{team}</option>
+          <option key={index} value={team}>{team}</option>
         )
       }
     </select>
